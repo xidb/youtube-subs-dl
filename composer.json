@@ -1,0 +1,6 @@
+{
+    "require": {
+        "symfony/process": "^3.4",
+        "gbuckingham89/youtube-rss-parser": "^0.1.0"
+    }
+}
