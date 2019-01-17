@@ -1,6 +1,7 @@
 <?php
 
-//error_reporting(0);
+set_time_limit(0);
+ini_set ('max_execution_time',  0);
 
 define('DIR', dirname(__FILE__) . '/');
 
@@ -95,6 +96,7 @@ foreach ($subs as $sub) {
         echo PHP_EOL;
 
         $process = new Process($cmd);
+        $process->setTimeout(3600);
 
         $process->run(function($type, $buffer) {
             echo $buffer;
