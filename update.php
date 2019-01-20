@@ -30,7 +30,8 @@ if (!file_exists($subsFile)) {
     die();
 }
 
-$ydl = 'youtube-dl';
+$maybeYdl = glob(DIR . 'youtube-dl*');
+$ydl = !empty($maybeYdl) ? $maybeYdl[0] : 'youtube-dl';
 $ydlArgs = ['--no-playlist', '--write-sub', '--sub-lang', 'en,en-US,en-GB,ru,ru-RU', '--embed-sub'];
 $cmd = array_combine(range(1, count($ydlArgs)), array_values($ydlArgs));
 $cmd[0] = $ydl;
