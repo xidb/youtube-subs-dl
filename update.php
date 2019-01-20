@@ -26,7 +26,7 @@ $newCheck = time();
 $subsFile = DIR . 'subscriptions.xml';
 
 if (!file_exists($subsFile)) {
-    output('subscribtions.xml missing');
+    output('subscribtions.xml missing. Download it here https://www.youtube.com/subscription_manager?action_takeout=1');
     die();
 }
 
