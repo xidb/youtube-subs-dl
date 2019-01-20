@@ -1,6 +1,9 @@
-## Usage
+## Prerequisites
+* php v5.5+
+* php-cli
+* composer
 
-* Make sure you have PHP CLI installed 
+## Usage
 * `git clone https://github.com/xidb/youtube-subs-dl youtube-subs-dl`
 * Run `cd youtube-subs-dl && composer install && cd ..` 
 * Download latest <a href="https://rg3.github.io/youtube-dl/">youtube-dl</a> build and put it in `youtube-subs-dl` directory or make it available globally
