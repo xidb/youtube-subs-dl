@@ -19,9 +19,9 @@ if (!file_exists($lastFile)) {
 }
 
 $lastCheck = (int) file_get_contents($lastFile);
-$lastCheckRelative = toRelativeTime($lastCheck);
+$lastCheckRelative = toRelativeTime($lastCheck + (20 * 60));
 output("Last updated {$lastCheckRelative}");
-$newCheck = time();
+$newCheck = time() - (20 * 60);
 
 $subsFile = DIR . 'subscriptions.xml';
 
