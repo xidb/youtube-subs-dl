@@ -49,6 +49,7 @@ if (!$subs || $subsCount < 1) {
 }
 
 $somethingFound = false;
+$atLeastOneParsed = false;
 
 foreach ($subs as $sub) {
     $title = $sub->attributes()->title->__toString();
@@ -61,6 +62,8 @@ foreach ($subs as $sub) {
         output("Error parsing {$title} channel");
         continue;
     }
+
+    $atLeastOneParsed = true;
 
     $videos = $channel->toArray()['videos'];
     $toDl = [];
@@ -109,4 +112,6 @@ if (!$somethingFound) {
     output('Nothing found');
 }
 
-file_put_contents($lastFile, $newCheck);
+if ($atLeastOneParsed) {
+    file_put_contents($lastFile, $newCheck);
+}
