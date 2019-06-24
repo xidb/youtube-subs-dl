@@ -94,6 +94,10 @@ foreach ($subs as $sub) {
             array_pop($cmd);
         }
 
+        if ($toDlVideo['id'][0] === '-') {
+            array_push($cmd, '--');
+        }
+
         array_push($cmd, $toDlVideo['id']);
 
         output("Downloading \"{$toDlVideo['title']}\"");
