@@ -1,5 +1,5 @@
 ## Prerequisites
-* php v5.5+
+* php v7+
 * php-cli
 * composer
 
