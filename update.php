@@ -94,7 +94,7 @@ foreach ($subs as $sub) {
             array_pop($cmd);
         }
 
-        if ($toDlVideo['id'][0] === '-') {
+        if ($toDlVideo['id'][0] === '-' && $cmd[array_key_last($cmd)] !== '--') {
             array_push($cmd, '--');
         }
 
