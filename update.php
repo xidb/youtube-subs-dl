@@ -50,6 +50,7 @@ if (!$subs || $subsCount < 1) {
 
 $somethingFound = false;
 $atLeastOneParsed = false;
+$hasError = false;
 
 foreach ($subs as $sub) {
     $title = $sub->attributes()->title->__toString();
@@ -109,6 +110,13 @@ foreach ($subs as $sub) {
         $process->run(function($type, $buffer) {
             echo $buffer;
         });
+
+        if (!$process->isSuccessful()) {
+            $hasError = true;
+            break 2;
+        }
+
+        sleep(15);
     }
 }
 
@@ -116,6 +124,6 @@ if (!$somethingFound) {
     output('Nothing found');
 }
 
-if ($atLeastOneParsed) {
+if ($atLeastOneParsed && !$hasError) {
     file_put_contents($lastFile, $newCheck);
 }
