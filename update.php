@@ -115,8 +115,6 @@ foreach ($subs as $sub) {
             $hasError = true;
             break 2;
         }
-
-        sleep(15);
     }
 }
 
