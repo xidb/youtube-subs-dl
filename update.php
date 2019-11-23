@@ -118,8 +118,12 @@ foreach ($subs as $sub) {
         });
 
         if (!$process->isSuccessful()) {
-            $hasError = true;
-            break 2;
+            output("Error downloading \"{$toDlVideo['title']}\"");
+
+            if (in_array('--stop-on-error', $argv) || in_array('-s', $argv)) {
+                $hasError = true;
+                break 2;
+            }
         }
     }
 }
