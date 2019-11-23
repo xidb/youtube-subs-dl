@@ -95,6 +95,12 @@ foreach ($subs as $sub) {
             array_pop($cmd);
         }
 
+        // Do not download if id passed in arguments
+        if (in_array($toDlVideo['id'], $argv)) {
+            output("Skipping \"{$toDlVideo['title']}\" as requested");
+            continue;
+        }
+
         if ($toDlVideo['id'][0] === '-' && $cmd[array_key_last($cmd)] !== '--') {
             array_push($cmd, '--');
         }
